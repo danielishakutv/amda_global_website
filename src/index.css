@@ -1,0 +1,167 @@
+@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+@theme {
+  /* AMDA Brand Colors - extracted from logo */
+  --color-primary: #1A1A2E;
+  --color-secondary: #0066B3;
+  --color-accent: #D4AF37;
+  --color-accent-light: #E8C857;
+  --color-surface-light: #F8FAFC;
+  --color-surface-dark: #16213E;
+  --color-muted: #64748B;
+
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-display: 'Space Grotesk', sans-serif;
+
+  --animate-fade-in: fadeIn 0.6s ease-out;
+  --animate-slide-up: slideUp 0.6s ease-out;
+  --animate-slide-in-left: slideInLeft 0.8s ease-out;
+  --animate-slide-in-right: slideInRight 0.8s ease-out;
+  --animate-scale-in: scaleIn 0.5s ease-out;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-glow: pulseGlow 2s ease-in-out infinite;
+
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  @keyframes slideUp {
+    0% { transform: translateY(40px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+  @keyframes slideInLeft {
+    0% { transform: translateX(-60px); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+  }
+  @keyframes slideInRight {
+    0% { transform: translateX(60px); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+  }
+  @keyframes scaleIn {
+    0% { transform: scale(0.9); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
+  @keyframes pulseGlow {
+    0%, 100% { box-shadow: 0 0 20px rgba(212, 175, 55, 0.3); }
+    50% { box-shadow: 0 0 40px rgba(212, 175, 55, 0.6); }
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-white text-primary font-sans antialiased;
+}
+
+/* Typography utilities */
+.font-display {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+/* Glass morphism navigation */
+.glass-nav {
+  @apply backdrop-blur-xl bg-white/80 border-b border-gray-200/50 shadow-sm;
+}
+
+.solid-nav {
+  @apply bg-primary text-white shadow-xl;
+}
+
+/* Modern button styles */
+.btn-primary {
+  @apply bg-accent text-primary font-bold px-8 py-4 rounded-lg hover:bg-accent-light transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5;
+}
+
+.btn-secondary {
+  @apply bg-transparent border-2 border-white text-white font-bold px-8 py-4 rounded-lg hover:bg-white hover:text-primary transition-all duration-300;
+}
+
+.btn-outline {
+  @apply bg-transparent border-2 border-accent text-accent font-bold px-8 py-4 rounded-lg hover:bg-accent hover:text-primary transition-all duration-300;
+}
+
+/* Card styles */
+.card-elevated {
+  @apply bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100;
+}
+
+.card-glass {
+  @apply backdrop-blur-lg bg-white/10 rounded-2xl border border-white/20;
+}
+
+/* Gradient backgrounds */
+.gradient-primary {
+  background: linear-gradient(135deg, #1A1A2E 0%, #16213E 50%, #0066B3 100%);
+}
+
+.gradient-accent {
+  background: linear-gradient(135deg, #D4AF37 0%, #E8C857 100%);
+}
+
+.gradient-hero {
+  background: linear-gradient(180deg, #1A1A2E 0%, #16213E 60%, #0F3460 100%);
+}
+
+/* Text gradients */
+.text-gradient {
+  @apply bg-clip-text text-transparent;
+  background-image: linear-gradient(135deg, #D4AF37 0%, #E8C857 100%);
+}
+
+.text-gradient-blue {
+  @apply bg-clip-text text-transparent;
+  background-image: linear-gradient(135deg, #0066B3 0%, #00A8E8 100%);
+}
+
+/* Section dividers */
+.section-divider {
+  @apply w-24 h-1 bg-gradient-to-r from-accent to-accent-light rounded-full;
+}
+
+/* Decorative elements */
+.dot-pattern {
+  background-image: radial-gradient(rgba(212, 175, 55, 0.15) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.line-pattern {
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgba(0, 102, 179, 0.03) 10px,
+    rgba(0, 102, 179, 0.03) 20px
+  );
+}
+
+/* Smooth scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+/* Selection styling */
+::selection {
+  background: rgba(212, 175, 55, 0.3);
+  color: #1A1A2E;
+}
